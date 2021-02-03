@@ -13,6 +13,11 @@ Installation du projet :
 
 *Si déjà installés le terminal vous dira qu'ils sont à jour.
 
+#Commandes importantes
+
+-> symfony server:start #Pour mettre en marche le serveur sur localhost
+-> yarn encore dev --watch #Pour compiler les compostants du fichier assets et les rendre accessibles au navigateur
+
 #Vous pouvez commencer à coder !
 
 /!\ Pour démarrer un nouveau projet en Symfony /!\
