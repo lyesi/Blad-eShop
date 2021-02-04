@@ -9,7 +9,7 @@
 </style>
 
 {% if app.user %}
-    <a>{{ app.user.name }}</a>
+    <a href="{{ path('profile') }}">{{ app.user.name }}</a>
     <br/>
     <a href="{{ path('app_logout') }}"> Se déconnecter</a>
 {% else %}
