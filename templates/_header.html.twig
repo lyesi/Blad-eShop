@@ -1,0 +1,16 @@
+{% block header %}
+    <header>
+        <a href="{{ path('home') }}" class="logo-title">Blad<span style="color: orange;">e</span>Shop</a>
+        {% if app.user %}
+        <div class="user-section">
+            <a class="user-icon-section" href="{{ path('profile') }}">
+                <img class="user-icon" src="{{ asset('build/images/user_icon.png') }}"/>
+            </a>
+            <br/>
+            <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+        </div>
+        {% else %}
+            <a class="user-section" href="{{ path('app_login') }}"> Se connecter</a>
+        {% endif %}
+    </header>
+{% endblock %}
