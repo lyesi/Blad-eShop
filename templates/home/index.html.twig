@@ -9,7 +9,8 @@
 </style>
 
 {% if app.user %}
-    {{ app.user.email }}
+    <a>{{ app.user.name }}</a>
+    <br/>
     <a href="{{ path('app_logout') }}"> Se déconnecter</a>
 {% else %}
     <a href="{{ path('app_login') }}"> Se connecter</a>
