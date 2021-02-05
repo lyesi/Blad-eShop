@@ -1,27 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ user.firstname }}{% endblock %}
+{% block title %}Item{% endblock %}
 
 {% block body %}
-    <h1>{{ user.firstname }} {{ user.lastname }}</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Phonenumber</th>
-                <td>{{ user.phonenumber }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    {% if app.user.id == user.id %}
-    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-
-    {{ include('user/_delete_form.html.twig') }}
+    <h1>Item</h1>
 
     <table class="table">
         <tbody>
@@ -51,11 +33,10 @@
             </tr>
         </tbody>
     </table>
-    
-    <a href="{{ path('item_new') }}">Ajoutez un article</a>
 
-    {% endif %}
+    <a href="{{ path('item_index') }}">back to list</a>
 
+    <a href="{{ path('item_edit', {'id': item.id}) }}">edit</a>
 
-    
+    {{ include('item/_delete_form.html.twig') }}
 {% endblock %}
