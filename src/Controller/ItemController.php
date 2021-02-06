@@ -53,7 +53,7 @@ class ItemController extends AbstractController
      */
     public function show(Item $item): Response
     {
-        return $this->render('item/show.html.twig', [
+        return $this->render('item/show.html.twig',  [
             'item' => $item,
         ]);
     }
