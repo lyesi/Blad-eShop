@@ -39,13 +39,27 @@ header {
     -webkit-backdrop-filter: blur(6.5px);
 }
 
+.logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 5rem;
+    height: auto;
+    position: absolute;
+    left: 1rem;
+}
+
 .logo-title {
     font-family:"Poppins-SemiBold";
-    margin-left: 2rem;
+    margin-left: 4.4rem;
     font-size: 2.8rem;
-    color: rgb(98, 98, 163);
+    color: rgb(116,127,174);
     text-shadow: 1px 2px 4px rgba(71,97,206,.36);
     text-decoration: none;
+    z-index: 2;
 }
 
 .user-section {
