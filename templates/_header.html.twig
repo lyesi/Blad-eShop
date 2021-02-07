@@ -1,6 +1,6 @@
 {% block header %}
     <header>
-        <a href="{{ path('home') }}" class="logo-title">Blad<span style="color: #ffb44b;">e</span>Shop</a>
+        <a href="{{ app.user ? path('home') : path('app_login') }}" class="logo-title">Blad<span style="color: #ffb44b;">e</span>Shop</a>
         {% if app.user %}
         <div class="user-section">
             <a class="user-icon-section" href="{{ path('profile') }}">
@@ -9,7 +9,9 @@
             <br/>
             <a class="user-login-logout" href="{{ path('app_logout') }}"> Se déconnecter</a>
         </div>
-        {% else %}
+        {% elseif app.request.pathinfo == path('app_login') %}
+            <a class="user-login-logout user-login" href="{{ path('app_register') }}"> S'inscrire</a>
+        {% elseif app.request.pathinfo == path('app_register') %}
             <a class="user-login-logout user-login" href="{{ path('app_login') }}"> Se connecter</a>
         {% endif %}
     </header>

@@ -1,28 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Log in{% endblock %}
 
 {% block body %}
+
+{% if app.user %}
+        <div class="already-logged-in">
+            Vous êtes déjà connecté sur {{ app.user.username }}, <a style="color: white; font-weight: bold;" href="{{ path('app_logout') }}">se déconnecter</a>
+        </div>
+{% endif %}
+
 <form class="login-form" method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <input type="email" value="{{ last_username }}" name="email" placeholder="Email" id="inputEmail" class="form-control" required autofocus>
-    <input type="password" name="password" placeholder="Password" id="inputPassword" class="form-control" required>
-
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Se connecter
-    </button>
+    <h1 class="login-title">Connexion</h1>
+    <div>
+        <input type="email" value="{{ last_username }}" name="email" placeholder="Email" id="inputEmail" class="form-control" required autofocus>
+    </div>
+    <div>
+        <input type="password" name="password" placeholder="Password" id="inputPassword" class="form-control" required>
+    </div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+    <div>
+        <p class="login-register">Pas encore de compte ? <a href="{{ path('app_register') }}" class="login-register-link">S'inscrire</span></a>
+    </div>
+    <div>
+        <button type="submit">
+            Se connecter
+        </button>
+    </div>
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
