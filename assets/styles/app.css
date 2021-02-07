@@ -26,14 +26,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba( 255, 255, 255, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.17 );
-    backdrop-filter: blur( 6.5px );
-    -webkit-backdrop-filter: blur( 6.5px );
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+    backdrop-filter: blur(6.5px);
+    -webkit-backdrop-filter: blur(6.5px);
 }
 
 .logo-title {
-    font-family:"Poppins-Regular";
+    font-family:"Poppins-Medium";
     margin-left: 2rem;
     font-size: 2.8rem;
     color: rgb(75, 75, 148);
@@ -54,6 +54,7 @@ header {
 
 .user-login-logout {
     font-family:"Poppins-Medium";
+    font-weight: bold;
     text-decoration: none;
     font-size: 1.2rem;
     color: rgb(240, 240, 240);
@@ -77,15 +78,92 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba( 189, 189, 189, 0.30 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.27 );
+    background: rgba(189, 189, 189, 0.30);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.27);
     backdrop-filter: blur( 2.5px );
-    -webkit-backdrop-filter: blur( 2.5px );
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    -webkit-backdrop-filter: blur(2.5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .add-item-button-cross {
     position: absolute;
     background-color: #ffb44b;
     border-radius: 3px;
+}
+
+/* Formulaire de la page de Log In */
+
+.already-logged-in {
+    font-family:"Poppins-Medium";
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 1px 2px 4px rgba(71,97,206,.36);
+    margin-top: 30px;
+}
+
+.login-title {
+    margin-bottom: 10px;
+    font-size: 2.6rem;
+}
+
+.login-form {
+    width: 20%;
+    height: 23rem;
+    margin-top: 8rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+    backdrop-filter: blur(6.0px);
+    -webkit-backdrop-filter: blur(6.0px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+    font-family:"Poppins-Medium";
+    text-shadow: 1px 2px 4px rgba(71,97,206,.36);
+}
+
+.login-form input {
+    width: 80%;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.20);
+    border-radius: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+.login-form input::placeholder {
+    color: white;
+    font-family:"Poppins-Medium";
+    font-weight: bold;
+}
+
+.login-register {
+    margin-top: 1.6rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.login-register-link {
+    color: white;
+    font-weight: bold;
+}
+
+.login-form button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.90);
+    border-radius: 35px;
+    border: none;
+    color: rgb(255, 180, 75);
+    font-family:"Poppins-Medium";
+    font-weight: bold;
 }
