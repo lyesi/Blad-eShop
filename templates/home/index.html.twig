@@ -3,12 +3,12 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-<div class="button-center">
-    {# <div class="add-item-button"></div> #}
-</div>
 
 {% if app.user %}
-<a href="{{ path('item_new') }}">Ajoutez un article</a>
+<a href="{{ path('item_new') }}" class="add-item-button">
+        <div class="add-item-button-cross" style="width: 2rem; height: 0.5rem;"></div>
+        <div class="add-item-button-cross" style="height: 2rem; width: 0.5rem;"></div>
+</a>
 {% endif %}
 
 {% endblock %}

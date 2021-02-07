@@ -2,6 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: arial;
+    min-height: 100vh;
+    background: linear-gradient(to left bottom, rgba(120, 177, 215, 1), rgba(200, 102, 164, 0.25));
 }
 
 /* Contenu de ce qu'il y a dans le Header */
@@ -36,15 +38,25 @@ header {
 
 /* Contenu de la page Home */
 
-.button-center {
+.add-item-button {
+    position: absolute;
+    right: 5rem;
+    bottom: 5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
+    background: rgba( 189, 189, 189, 0.30 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
-/* .add-item-button {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    background-color: red;
-} */
+.add-item-button-cross {
+    position: absolute;
+    background-color: #ffb44b;
+    border-radius: 3px;
+}
