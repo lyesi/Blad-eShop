@@ -7,10 +7,10 @@
                 <img class="user-icon" src="{{ asset('build/images/user_icon.png') }}"/>
             </a>
             <br/>
-            <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+            <a class="user-login-logout" href="{{ path('app_logout') }}"> Se déconnecter</a>
         </div>
         {% else %}
-            <a class="user-section" href="{{ path('app_login') }}"> Se connecter</a>
+            <a class="user-login-logout user-login" href="{{ path('app_login') }}"> Se connecter</a>
         {% endif %}
     </header>
 {% endblock %}
