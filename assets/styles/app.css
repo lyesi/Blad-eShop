@@ -11,11 +11,18 @@ body {
 @font-face{
     font-family:"Poppins-Regular";
     src: url("Poppins-Regular.ttf");
+    font-family:"Poppins-Medium";
+    src: url("Poppins-Medium.ttf");
 }
 
 @font-face{
     font-family:"Poppins-Medium";
     src: url("Poppins-Medium.ttf");
+}
+
+@font-face{
+font-family:"Poppins-SemiBold";
+    src: url("Poppins-SemiBold.ttf");
 }
 
 /* Contenu de ce qu'il y a dans le Header */
@@ -33,10 +40,11 @@ header {
 }
 
 .logo-title {
-    font-family:"Poppins-Medium";
+    font-family:"Poppins-SemiBold";
     margin-left: 2rem;
     font-size: 2.8rem;
-    color: rgb(75, 75, 148);
+    color: rgb(98, 98, 163);
+    text-shadow: 1px 2px 4px rgba(71,97,206,.36);
     text-decoration: none;
 }
 
@@ -60,6 +68,11 @@ header {
     color: rgb(240, 240, 240);
     text-shadow: 1px 2px 4px rgba(71,97,206,.36);
     margin-right: 1rem;
+    transition-duration: .3s;
+}
+
+.user-login-logout:hover {
+    color: rgb(255, 180, 75);
 }
 
 .user-login {
@@ -83,6 +96,13 @@ header {
     backdrop-filter: blur( 2.5px );
     -webkit-backdrop-filter: blur(2.5px);
     border: 1px solid rgba(255, 255, 255, 0.18);
+    transition-duration: .3s;
+}
+
+.add-item-button:hover {
+    width: 6rem;
+    height: 6rem;
+    background: rgba(189, 189, 189, 0.60);
 }
 
 .add-item-button-cross {
@@ -107,10 +127,10 @@ header {
     font-size: 2.6rem;
 }
 
-.login-form {
-    width: 20%;
-    height: 23rem;
-    margin-top: 8rem;
+.login-form, .register-form form {
+    width: 22rem;
+    height: 25rem;
+    margin-top: 7rem;
     margin-left: auto;
     margin-right: auto;
     padding-top: 1rem;
@@ -128,8 +148,15 @@ header {
     text-shadow: 1px 2px 4px rgba(71,97,206,.36);
 }
 
-.login-form input {
-    width: 80%;
+.register-form div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.login-form input, .register-form form input {
+    width: 60%;
     padding: 10px 20px;
     margin-top: 20px;
     background: rgba(255, 255, 255, 0.20);
@@ -138,12 +165,17 @@ header {
     border-right: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     outline: none;
+    transition-duration: .3s;
 }
 
-.login-form input::placeholder {
+.login-form input::placeholder, .register-form form input::placeholder {
     color: white;
     font-family:"Poppins-Medium";
     font-weight: bold;
+}
+
+.login-form input:hover, .register-form form input:hover {
+    letter-spacing: 1.5px;
 }
 
 .login-register {
@@ -153,17 +185,55 @@ header {
 }
 
 .login-register-link {
-    color: white;
+    color:white;
     font-weight: bold;
+    font-size: 1.15rem;
+    text-shadow: 1px 2px 4px rgba(71,97,206,.56);
+    transition-duration: .3s;
 }
 
-.login-form button {
+.login-register-link:hover {
+    color: rgb(255, 180, 75);
+}
+
+.login-form button, .register-form form button {
     padding: 10px 20px;
     margin-top: 10px;
-    background: rgba(255, 255, 255, 0.90);
+    width: 11rem;
+    background:rgba(98, 98, 163, 0.80);
     border-radius: 35px;
     border: none;
-    color: rgb(255, 180, 75);
+    color: white;
     font-family:"Poppins-Medium";
     font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    transition-duration: .3s;
+}
+
+.login-form button:hover, .register-form form button:hover {
+    font-size: 1rem;
+    color: rgba(98, 98, 163, 0.80);
+    background: white;
+}
+
+.register-button {
+    margin-top: 20px;
+}
+
+.login-alert {
+    margin-bottom: -25px;
+    color: rgba(255, 0, 0, 0.68);
+}
+
+.register-form ul {
+    padding-left: 0;
+    margin: 10px 0 0 0;
+}
+
+.register-form li {
+    width: 18.5rem;
+    list-style-type: none;
+    text-align: center;
+    color: rgba(255, 0, 0, 0.68);
 }

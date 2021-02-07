@@ -12,26 +12,25 @@
 
 <form class="login-form" method="post">
     {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="login-alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
 
     <h1 class="login-title">Connexion</h1>
-    <div>
+
+    
         <input type="email" value="{{ last_username }}" name="email" placeholder="Email" id="inputEmail" class="form-control" required autofocus>
-    </div>
-    <div>
-        <input type="password" name="password" placeholder="Password" id="inputPassword" class="form-control" required>
-    </div>
+    
+        <input type="password" name="password" placeholder="Mot de passe" id="inputPassword" class="form-control" required>
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-    <div>
+    
         <p class="login-register">Pas encore de compte ? <a href="{{ path('app_register') }}" class="login-register-link">S'inscrire</span></a>
-    </div>
-    <div>
-        <button type="submit">
-            Se connecter
-        </button>
-    </div>
+    
+        <div class="register-button">
+            <button type="submit">
+                Se connecter
+            </button>
+        </div>
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
