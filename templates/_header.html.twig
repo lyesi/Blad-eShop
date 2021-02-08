@@ -2,7 +2,7 @@
     <header>
         <div class="logo-section">
             <img class="logo" src="{{ asset('build/images/blade_logo.png') }}" />
-            <a href="{{ app.user ? path('home') : path('app_login') }}" class="logo-title">Blad<span style="color: rgb(251,180,78);">e</span>Shop</a>
+            <a href="{{ app.user ? path('item_index') : path('app_login') }}" class="logo-title">Blad<span style="color: rgb(251,180,78);">e</span>Shop</a>
         </div>
         {% if app.user %}
         <div class="user-section">

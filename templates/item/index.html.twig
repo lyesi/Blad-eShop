@@ -1,43 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Item index{% endblock %}
+{% block title %}Acceuil{% endblock %}
 
 {% block body %}
-    <h1>Item index</h1>
+    <h1 class="item-title">Article⸱s en vente⸱s</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>State</th>
-                <th>Localisation</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <section class="items-container">
         {% for item in items %}
-            <tr>
-                <td>{{ item.id }}</td>
-                <td>{{ item.name }}</td>
-                <td>{{ item.price }}</td>
-                <td>{{ item.state }}</td>
-                <td>{{ item.localisation }}</td>
-                <td>{{ item.description }}</td>
-                <td>
-                    <a href="{{ path('item_show', {'id': item.id}) }}">Voir</a>
-                    <a href="{{ path('item_edit', {'id': item.id}) }}">Modifier</a>
-                </td>
-            </tr>
+            <div class="item-container">
+                <a class="item-link" href="{{ path('item_show', {'id': item.id}) }}">Voir</a>
+                <div class="item-price" style="--i:0;">{{ item.price }} <span style="font-size: 1rem;">€</span></div>
+                <ul class="item-list">
+                    <li>{{ item.name }}</li>
+                    <li>{{ item.state }}</li>
+                    <li>{{ item.localisation }}</li>
+                </ul>
+            </div>
         {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
+            <p colspan="7">Aucun article en vente 😔</td>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('item_new') }}">Ajouter un article</a>
+    </section>
+    {% if app.user %}
+        <a href="{{ path('item_new') }}" class="add-item-button">
+                <div class="add-item-button-cross" style="width: 2rem; height: 0.5rem;"></div>
+                <div class="add-item-button-cross" style="height: 2rem; width: 0.5rem;"></div>
+        </a>
+    {% endif %}
 {% endblock %}
