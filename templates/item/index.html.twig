@@ -9,7 +9,7 @@
         {% for item in items %}
             <div class="item-container">
                 <a class="item-link" href="{{ path('item_show', {'id': item.id}) }}">Voir</a>
-                <div class="item-price" style="--i:0;">{{ item.price }} <span style="font-size: 1rem;">€</span></div>
+                <div class="item-price">{{ item.price }} <span style="font-size: 1rem;">€</span></div>
                 <ul class="item-list">
                     <li>{{ item.name }}</li>
                     <li>{{ item.state }}</li>
