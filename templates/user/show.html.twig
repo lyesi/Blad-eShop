@@ -22,8 +22,8 @@
     <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
 
     {{ include('user/_delete_form.html.twig') }}
-
-    <a href="{{ path('item_index') }}">Mes articles</a>
+    
+    <a href="{{ path('app_logout') }}"> Se déconnecter</a>
 
     <a href="{{ path('item_new') }}">Ajoutez un article</a>
     {% endif %}
