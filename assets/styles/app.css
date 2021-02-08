@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: arial;
+    font-family:"Poppins-Medium";
     min-height: 100vh;
     background: linear-gradient(to left bottom, rgba(120, 177, 215, 1), rgba(200, 102, 164, 0.25));
 }
@@ -91,38 +91,6 @@ header {
 
 .user-login {
     margin-right: 2.5rem;
-}
-
-/* Contenu de la page Home */
-
-.add-item-button {
-    position: absolute;
-    right: 5rem;
-    bottom: 5rem;
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(189, 189, 189, 0.30);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.27);
-    backdrop-filter: blur( 2.5px );
-    -webkit-backdrop-filter: blur(2.5px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    transition-duration: .3s;
-}
-
-.add-item-button:hover {
-    width: 6rem;
-    height: 6rem;
-    background: rgba(189, 189, 189, 0.60);
-}
-
-.add-item-button-cross {
-    position: absolute;
-    background-color: #ffb44b;
-    border-radius: 3px;
 }
 
 /* Formulaire de la page de Log In */
@@ -250,4 +218,154 @@ header {
     list-style-type: none;
     text-align: center;
     color: rgba(255, 0, 0, 0.68);
+}
+
+/* Contenu de la page Home */
+
+.add-item-button {
+    position: fixed;
+    right: 5rem;
+    bottom: 5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(189, 189, 189, 0.30);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.27);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition-duration: .3s;
+}
+
+/* Régler le soucis pour le blur sur mozarella */
+
+/* .add-item-button::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(189, 189, 189, 0.30);
+    filter: blur(2.5px);
+} */
+
+.add-item-button:hover {
+    transform: scale(1.3);
+    background: rgba(189, 189, 189, 0.60);
+}
+
+.add-item-button-cross {
+    position: absolute;
+    background-color: rgb(251,180,78);
+    border-radius: 3px;
+}
+
+.item-title {
+    color: white;
+    text-align: center;
+    text-shadow: 1px 2px 4px rgba(71,97,206,.36);
+    font-size: 2.6rem;
+}
+
+.items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 25px;
+}
+
+.item-container {
+    width: 17rem;
+    height: 25rem;
+    display: flex;
+    align-items: flex-end;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.17 );
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition-duration: .3s;
+}
+
+.item-container:hover {
+    transform: scale(1.06);
+}
+
+.item-list {
+    width: 100%;
+    height: 9rem;
+    margin: 0;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    background: rgba( 255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.item-list li {
+    list-style: none;
+    color: rgb(116,127,174);
+    font-weight: bold;
+    text-shadow: 1px 2px 4px rgba(71,97,206,.10);
+}
+
+.item-list li:nth-child(1) {
+    font-size: 1.86rem;
+    width: 95%;
+    color: rgb(251,180,78);
+}
+
+.item-price {
+    position: absolute;
+    right: -1.5rem;
+    bottom: 10rem;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 1px 2px 4px rgba(71,97,206,.36);
+    font-size: 1.4rem;
+    border-radius: 10px 0 10px 0;
+    background: rgba( 255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    animation: animate 8s linear infinite;
+}
+
+@keyframes animate {
+    0%, 100% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+.item-link {
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    text-decoration: none;
+    color: rgb(240, 240, 240);
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition-duration: .3s;
+}
+
+.item-link:hover {
+    font-size: 1.5rem;
+    color: rgb(251,180,78);
 }
