@@ -478,3 +478,19 @@ header {
     color: rgb(98, 98, 163);
     margin-left: 25px;
 }
+
+/* Mode responsive pour la bar de navigation */
+
+@media only screen and (max-width: 678px) {
+    .user-login-logout {
+        display: none;
+    }
+}
+
+/* Mode responsive pour l'acceuil' */
+
+@media only screen and (max-width: 440px) {
+    .item-title {
+        font-size: 1.8rem;
+    }
+}
