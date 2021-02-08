@@ -14,7 +14,7 @@
         </div>
         {% elseif app.request.pathinfo == path('app_login') %}
             <a class="user-login-logout user-login" href="{{ path('app_register') }}"> S'inscrire</a>
-        {% elseif app.request.pathinfo == path('app_register') %}
+        {% else %}
             <a class="user-login-logout user-login" href="{{ path('app_login') }}"> Se connecter</a>
         {% endif %}
     </header>
