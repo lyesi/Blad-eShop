@@ -307,6 +307,8 @@ header {
     padding-left: 20px;
     background: rgba( 255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-right: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -337,10 +339,12 @@ header {
     color: white;
     text-shadow: 1px 2px 4px rgba(71,97,206,.36);
     font-size: 1.4rem;
-    z-index: 2;
+    z-index: -5;
     border-radius: 10px 0 10px 0;
     background: rgba( 255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-right: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -370,4 +374,107 @@ header {
 .item-link:hover {
     font-size: 1.5rem;
     color: rgb(251,180,78);
+}
+
+/* Contenu de la page item_show */
+
+.item-section {
+    display: flex;
+    margin: 4rem 0 -4rem 5rem;
+}
+
+.item-image-show {
+    width: 18rem;
+    height: 18rem;
+    z-index: 2;
+    border-radius: 0 20px 0 20px;
+    background: rgba(98, 98, 163, 0.75);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    animation: animate 10s linear infinite;
+}
+
+.item-information, .item-description {
+    color: rgb(240, 240, 240);
+    text-shadow: 1px 2px 4px rgba(71,97,206,.36);
+    font-weight: bold;
+}
+
+.item-information li {
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+.item-information li:nth-child(1) {
+    font-size: 2.8rem;
+    color: rgb(251,180,78);
+}
+
+.item-information li:nth-child(2) {
+    font-size: 1.7rem;
+}
+
+.item-description-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-description {
+    width: 70%;
+    height: 18rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px 0 20px 0;
+    background: rgba( 255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.item-description p {
+    padding: 30px 70px 0 170px;
+    font-size: 1.5rem;
+}
+
+.bubble {
+    position: absolute;
+    right: 12.3rem;
+    bottom: 10rem;
+    width: 4rem;
+    height: 4rem;
+    z-index: 2;
+    border-radius: 10px;
+    background: rgba( 255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    animation: animate 10s linear infinite;
+}
+
+.item-edit-button {    
+    width: 70%;
+    text-align: end;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(98, 98, 163);
+    padding-right: 15px;
+}
+
+.item-return-button {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(98, 98, 163);
+    margin-left: 25px;
 }
