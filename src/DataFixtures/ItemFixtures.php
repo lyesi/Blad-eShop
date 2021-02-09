@@ -6,94 +6,81 @@ use App\Entity\Item;
 use App\Repository\UserRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class ItemFixtures extends Fixture
+class ItemFixtures extends Fixture implements DependentFixtureInterface
 {
-    private $userRepository;
 
-    public function __construct(UserRepository $userRepository)
+    const ITEMS = [
+        'Sabre Laser' => [
+                            'price' => 220,
+                            'state' => 'Bon état',
+                            'localisation' => 'Étoile Noire',
+                            'description' => 'Le sabre laser n’est ni plus ni moins qu’un sabre qui coupe beaucoup plus qu’une simple lame. C’est super pour terrasser ses ennemis et c’est hyper classe, il faut l’avouer. Surtout en rouge.',
+                            ],
+        'Gant de l\'Infini' => [
+                            'price' => 1250,
+                            'state' => 'Parfait état',
+                            'localisation' => 'Planète Morag',
+                            'description' => 'Si son possesseur réunit les 6 gemmes de l’infini, il peut manipuler l’espace, le temps, la réalité, l’esprit, la destruction, ainsi que la vie et la mort.',
+                            ],
+        'Death Note' => [
+                            'price' => 825,
+                            'state' => 'Très bon état',
+                            'localisation' => 'Dans la cours de récré',
+                            'description' => 'Tuer les personnes dont on inscrit le nom sur ce carnet. On peut choisir la cause de leur mort et la manière dont elle va se dérouler. La seule condition est de connaître leur visage.',
+                            ],
+        'Excalibur' => [
+                            'price' => 300,
+                            'state' => 'Usé',
+                            'localisation' => 'Bretagne',
+                            'description' => 'Elle est plus puissante que les autres épées et protège son porteur des blessures fatales. Excalibur ne révèle ses pouvoirs que dans la main de ceux qui en sont dignes.',
+                            ],
+        'Portal gun' => [
+                            'price' => 399,
+                            'state' => 'Bon état',
+                            'localisation' => 'Aperture Science Enrichment Center',
+                            'description' => 'Permet de créer un portail d’une dimension à une autre. Utile pour se déplacer, s’enfuir ou se débarrasser d’un ennemi en l’envoyant dans une autre dimension.',
+                            ],
+        'Mjolnir' => [
+                            'price' => 355,
+                            'state' => 'Très usé',
+                            'localisation' => 'Asgard',
+                            'description' => 'ugmente la force physique de son possesseur, contrôle le climat, manipule la foudre, permet de ressusciter des gens, permet de voler en le lançant et en s’y accrochant avec une lanière.',
+                            ],
+        'Baguette de Sureau' => [
+                            'price' => 160,
+                            'state' => 'Bon état',
+                            'localisation' => 'Poudlard',
+                            'description' => 'Lancer des sorts pour tuer, faire souffrir, faire obéir, immobiliser, exploser, se protéger, faire la vaisselle et réparer des lunettes. Est meilleure que toutes les autres baguettes de sorciers.',
+                            ],
+        'Kunaï' => [
+                            'price' => 25,
+                            'state' => 'Très bon état',
+                            'localisation' => 'Konoha',
+                            'description' => 'Un Kunaï est une arme couramment utilisée par les ninjas. Il s\'agit d\'une arme blanche destinée à blesser au corps à corps, bien qu\'il puisse servir d\'arme de jet.',
+                            ],
+    ];
+
+    public function getDependencies()  
     {
-        $this->userRepository = $userRepository;
+        return [UserFixtures::class];  
     }
 
     public function load(ObjectManager $manager)
     {
-
-        $hugo = $this->userRepository->findOneBy(['firstname' => 'Hugo']);
-        $ilyes = $this->userRepository->findOneBy(['firstname' => 'Ilyes']);
-
-        $sabreLaser = new Item();
-        $sabreLaser->setName('Sabre Laser');
-        $sabreLaser->setPrice('220');
-        $sabreLaser->setState('Bon état');
-        $sabreLaser->setLocalisation('Étoile Noire');
-        $sabreLaser->setDescription('Le sabre laser n’est ni plus ni moins qu’un sabre qui coupe beaucoup plus qu’une simple lame. C’est super pour terrasser ses ennemis et c’est hyper classe, il faut l’avouer. Surtout en rouge.');
-        $sabreLaser->setSeller($ilyes);
-        $manager->persist($sabreLaser);
-
-        $gantDeLinfini = new Item();
-        $gantDeLinfini->setName('Gant de l\'Infini');
-        $gantDeLinfini->setPrice('1250');
-        $gantDeLinfini->setState('Parfait état');
-        $gantDeLinfini->setLocalisation('Planète Morag');
-        $gantDeLinfini->setDescription('Si son possesseur réunit les 6 gemmes de l’infini, il peut manipuler l’espace, le temps, la réalité, l’esprit, la destruction, ainsi que la vie et la mort.');
-        $gantDeLinfini->setSeller($ilyes);
-        $manager->persist($gantDeLinfini);
-
-        $deathNote = new Item();
-        $deathNote->setName('Death Note');
-        $deathNote->setPrice('825');
-        $deathNote->setState('Très bon état');
-        $deathNote->setLocalisation('Dans la cours de récré');
-        $deathNote->setDescription('Tuer les personnes dont on inscrit le nom sur ce carnet. On peut choisir la cause de leur mort et la manière dont elle va se dérouler. La seule condition est de connaître leur visage.');
-        $deathNote->setSeller($ilyes);
-        $manager->persist($deathNote);
-
-        $excalibur = new Item();
-        $excalibur->setName('Excalibur');
-        $excalibur->setPrice('300');
-        $excalibur->setState('Usé');
-        $excalibur->setLocalisation('Bretagne');
-        $excalibur->setDescription('Elle est plus puissante que les autres épées et protège son porteur des blessures fatales. Excalibur ne révèle ses pouvoirs que dans la main de ceux qui en sont dignes.');
-        $excalibur->setSeller($ilyes);
-        $manager->persist($excalibur);
-
-        $portalGun = new Item();
-        $portalGun->setName('Portal gun');
-        $portalGun->setPrice('399');
-        $portalGun->setState('Bon état');
-        $portalGun->setLocalisation('Aperture Science Enrichment Center');
-        $portalGun->setDescription('Permet de créer un portail d’une dimension à une autre. Utile pour se déplacer, s’enfuir ou se débarrasser d’un ennemi en l’envoyant dans une autre dimension.');
-        $portalGun->setSeller($hugo);
-        $manager->persist($portalGun);
-
-        $mjolnir = new Item();
-        $mjolnir->setName('Mjolnir');
-        $mjolnir->setPrice('355');
-        $mjolnir->setState('Très usé');
-        $mjolnir->setLocalisation('Asgard');
-        $mjolnir->setDescription('Augmente la force physique de son possesseur, contrôle le climat, manipule la foudre, permet de ressusciter des gens, permet de voler en le lançant et en s’y accrochant avec une lanière.');
-        $mjolnir->setSeller($hugo);
-        $manager->persist($mjolnir);
-
-        $baguette = new Item();
-        $baguette->setName('Baguette de Sureau');
-        $baguette->setPrice('160');
-        $baguette->setState('Bon état');
-        $baguette->setLocalisation('Poudlard');
-        $baguette->setDescription('Lancer des sorts pour tuer, faire souffrir, faire obéir, immobiliser, exploser, se protéger, faire la vaisselle et réparer des lunettes. Est meilleure que toutes les autres baguettes de sorciers.');
-        $baguette->setSeller($hugo);
-        $manager->persist($baguette);
-
-        $kunai = new Item();
-        $kunai->setName('Kunaï');
-        $kunai->setPrice('25');
-        $kunai->setState('Très bon état');
-        $kunai->setLocalisation('Konoha');
-        $kunai->setDescription('Un Kunaï est une arme couramment utilisée par les ninjas. Il s\'agit d\'une arme blanche destinée à blesser au corps à corps, bien qu\'il puisse servir d\'arme de jet.');
-        $kunai->setSeller($hugo);
-        $manager->persist($kunai);
-
+        $i = 0;
+        foreach(self::ITEMS as $title => $data) {
+            $sabreLaser = new Item();
+            $sabreLaser->setName($title);
+            $sabreLaser->setPrice($data['price']);
+            $sabreLaser->setState($data['state']);
+            $sabreLaser->setLocalisation($data['localisation']);
+            $sabreLaser->setDescription($data['description']);
+            $sabreLaser->setSeller($this->getReference('seller_1'));
+            $manager->persist($sabreLaser);
+            $i++;
+        }
         $manager->flush();
     }
 }
