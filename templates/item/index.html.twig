@@ -3,6 +3,7 @@
 {% block title %}Acceuil{% endblock %}
 
 {% block body %}
+{% if app.user %}
     <h1 class="item-title">Article⸱s en vente⸱s</h1>
 
     <section class="items-container">
@@ -20,10 +21,11 @@
             <p colspan="7">Aucun article en vente 😔</td>
         {% endfor %}
     </section>
-    {% if app.user %}
         <a href="{{ path('item_new') }}" class="add-item-button">
-                <div class="add-item-button-cross" style="width: 2rem; height: 0.5rem;"></div>
-                <div class="add-item-button-cross" style="height: 2rem; width: 0.5rem;"></div>
+            <div class="add-item-button-cross" style="width: 2rem; height: 0.5rem;"></div>
+            <div class="add-item-button-cross" style="height: 2rem; width: 0.5rem;"></div>
         </a>
-    {% endif %}
+{% else %}
+    <h1 class="item-title">Vous devez être connecté pour voir les articles</h1>
+{% endif %}
 {% endblock %}
