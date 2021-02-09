@@ -35,6 +35,9 @@ class ItemController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Permet de réccupérer l'id de seller et de l'attribuer à l'user
+            $user = $this->getUser();
+            $item->setSeller($user);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($item);
             $entityManager->flush();
