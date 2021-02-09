@@ -42,6 +42,12 @@ class Item
      */
     private $description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="items")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $seller;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +109,18 @@ class Item
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getSeller(): ?User
+    {
+        return $this->seller;
+    }
+
+    public function setSeller(?User $seller): self
+    {
+        $this->seller = $seller;
 
         return $this;
     }
