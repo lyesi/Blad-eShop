@@ -10,12 +10,17 @@
                 <img class="user-icon" src="{{ asset('build/images/user_icon.png') }}"/>
             </a>
             <br/>
-            <a class="user-login-logout" href="{{ path('app_logout') }}"> Se déconnecter</a>
+            <div class="user-name-section">
+                {% if app.user.firstname and app.user.lastname %}
+                <p class="user-name">{{ app.user.firstname }} {{ app.user.lastname }}</p>
+                {% endif %}
+                <a class="user-login-logout" href="{{ path('app_logout') }}"> Se déconnecter</a>
+            </div>
         </div>
         {% elseif app.request.pathinfo == path('app_login') %}
-            <a class="user-login-logout user-login" href="{{ path('app_register') }}"> S'inscrire</a>
+            <a class="user-login" href="{{ path('app_register') }}"> S'inscrire</a>
         {% else %}
-            <a class="user-login-logout user-login" href="{{ path('app_login') }}"> Se connecter</a>
+            <a class="user-login" href="{{ path('app_login') }}"> Se connecter</a>
         {% endif %}
     </header>
 {% endblock %}
