@@ -14,9 +14,9 @@
         </ul>
     </section>
     <div class="item-description-section">
-        {# {% if app.user.id == item.id %} #}
-        <a class="item-edit-button" href="{{ path('item_edit', {'id': item.id}) }}">Modifier</a>
-        {# {% endif %} #}
+        {% if app.user.id == item.seller.id %}
+            <a class="item-edit-button" href="{{ path('item_edit', {'id': item.id}) }}">Modifier</a>
+        {% endif %}
         <div class="item-description"><p>{{ item.description }}</p></div>
     </div>
     <div class="bubble"></div>
