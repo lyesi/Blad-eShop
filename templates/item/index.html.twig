@@ -3,10 +3,11 @@
 {% block title %}Acceuil{% endblock %}
 
 {% block body %}
+{% if app.user %}
     <h1 class="item-title">Article⸱s en vente⸱s</h1>
 
     <section class="items-container">
-        {% for item in items %}
+        {% for item in items|reverse %} {# reverse allows the items to order to newest to older#}
             <div class="item-container">
                 <a class="item-link" href="{{ path('item_show', {'id': item.id}) }}">Voir</a>
                 <div class="item-price">{{ item.price }} <span style="font-size: 1rem;">€</span></div>
@@ -20,10 +21,11 @@
             <p colspan="7">Aucun article en vente 😔</td>
         {% endfor %}
     </section>
-    {% if app.user %}
         <a href="{{ path('item_new') }}" class="add-item-button">
-                <div class="add-item-button-cross" style="width: 2rem; height: 0.5rem;"></div>
-                <div class="add-item-button-cross" style="height: 2rem; width: 0.5rem;"></div>
+            <div class="add-item-button-cross" style="width: 2rem; height: 0.5rem;"></div>
+            <div class="add-item-button-cross" style="height: 2rem; width: 0.5rem;"></div>
         </a>
-    {% endif %}
+{% else %}
+    <h1 class="item-title">Vous devez être connecté pour voir les articles</h1>
+{% endif %}
 {% endblock %}

@@ -14,12 +14,13 @@
         </ul>
     </section>
     <div class="item-description-section">
-        {# {% if app.user.id == item.id %} #}
-        <a class="item-edit-button" href="{{ path('item_edit', {'id': item.id}) }}">Modifier</a>
-        {# {% endif %} #}
+        {% if app.user and app.user.id == item.seller.id %}
+            <a class="item-edit-button" href="{{ path('item_edit', {'id': item.id}) }}">Modifier</a>
+        {% endif %}
         <div class="item-description"><p>{{ item.description }}</p></div>
     </div>
-    <div class="bubble"></div>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
 
-    <a class="item-return-button" href="{{ path('item_index') }}">Retour</a>
+    <a class="item-return-button" href="{{ app.request.headers.get('referer') }}">Retour</a>
 {% endblock %}

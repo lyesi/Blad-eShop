@@ -4,7 +4,7 @@ Installation du projet :
 
 #Cloner le répo dans un dossier vide avec la commande suivante :
 
--> clone https://github.com/lyesi/Blad-eShop.git
+-> git clone https://github.com/lyesi/Blad-eShop.git
 
 #Installer composer ainsi que le module Webpack Encore si ce n'est pas déjà fait
 
