@@ -1,4 +1,7 @@
 {{ form_start(form) }}
+    <h1 class="login-title">Ajouter un nouvel article</h1>
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="register-button">
+        <button class="btn">{{ button_label|default('Ajouter') }}</button>
+    </div>
 {{ form_end(form) }}

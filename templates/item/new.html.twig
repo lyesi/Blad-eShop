@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Item{% endblock %}
+{% block title %}Nouvel Article{% endblock %}
 
 {% block body %}
-    <h1>Create new Item</h1>
 
+    <div class="register-form new-item-form">
     {{ include('item/_form.html.twig') }}
+    </div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+    <div class="bubble bubble-6"></div>
 
-    <a href="{{ path('item_index') }}">back to list</a>
+    <a class="item-return-button" href="{{ app.request.headers.get('referer') }}">Retour</a>
 {% endblock %}

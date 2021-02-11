@@ -22,5 +22,5 @@
     <div class="bubble bubble-1"></div>
     <div class="bubble bubble-2"></div>
 
-    <a class="item-return-button" href="{{ path('item_index') }}">Retour</a>
+    <a class="item-return-button" href="{{ app.request.headers.get('referer') }}">Retour</a>
 {% endblock %}
