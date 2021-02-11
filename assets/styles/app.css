@@ -397,7 +397,7 @@ header {
 
 .item-section {
     display: flex;
-    margin: 4rem 0 -4rem 5rem;
+    margin: 3rem 0 -4rem 5rem;
 }
 
 .item-image-show {
@@ -415,25 +415,53 @@ header {
     animation: animate 10s linear infinite;
 }
 
-.item-information, .item-description {
+.item-name {
+    font-size: 2.8rem;
+    color: rgb(251,180,78);
+    padding-left: 40px;
+    margin: 10px 0 0 0;
+    text-shadow: 1px 2px 4px rgba(71,97,206,.36);
+    font-weight: bold;
+}
+
+.item-information-section {
+    display: flex;
+}
+
+.item-information, .item-description, .item-seller-information {
     color: rgb(240, 240, 240);
     text-shadow: 1px 2px 4px rgba(71,97,206,.36);
     font-weight: bold;
 }
 
-.item-information li {
+.item-information li, .item-seller-information li {
     list-style: none;
     font-size: 1.2rem;
 }
 
 .item-information li:nth-child(1) {
-    font-size: 2.8rem;
+    font-size: 1.7rem;
+}
+
+.item-seller-information {
+    margin-top: 3.5rem;
+}
+
+.item-seller-information li:nth-child(2) p {
+    display: inline;
+}
+
+.item-seller-profile {
+    text-decoration: none;
+    color: rgb(98, 98, 163);
+    text-shadow: 1px 2px 4px rgba(71,97,206,.4);
+    transition-duration: .3s;
+}
+
+.item-seller-profile:hover {
     color: rgb(251,180,78);
 }
 
-.item-information li:nth-child(2) {
-    font-size: 1.7rem;
-}
 
 .item-description-section {
     display: flex;
@@ -460,6 +488,8 @@ header {
 .item-description p {
     padding: 30px 70px 0 170px;
     font-size: 1.5rem;
+    color: rgb(98, 98, 163);
+    text-shadow: 1px 2px 4px rgba(71,97,206,.1);
 }
 
 .bubble {
@@ -481,6 +511,7 @@ header {
     width: 4rem;
     height: 4rem;
     z-index: -1;
+    animation: animate 5s linear infinite;
 }
 
 .bubble-2 {
@@ -489,6 +520,7 @@ header {
     width: 4rem;
     height: 4rem;
     z-index: 2 ;
+    animation: animate 6s linear infinite;
 }
 
 .item-edit-button {
@@ -527,7 +559,6 @@ header {
     bottom: 10rem;
     width: 10rem;
     height: 10rem;
-    border-radius: 0 10px 0 10px;
     border: none;
     background: rgba(98, 98, 163, 0.6);
     z-index: -1 ;
@@ -558,7 +589,6 @@ header {
     width: 4rem;
     height: 4rem;
     border: none;
-    border-radius: 10px 0 10px 0;
     background: rgba(251,180,78, 0.6);
     z-index: 2 ;
     animation: animate 3s linear infinite;
