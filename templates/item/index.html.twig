@@ -7,7 +7,7 @@
     <h1 class="item-title">Article⸱s en vente⸱s</h1>
 
     <section class="items-container">
-        {% for item in items %}
+        {% for item in items|reverse %} {# reverse allows the items to order to newest to older#}
             <div class="item-container">
                 <a class="item-link" href="{{ path('item_show', {'id': item.id}) }}">Voir</a>
                 <div class="item-price">{{ item.price }} <span style="font-size: 1rem;">€</span></div>
