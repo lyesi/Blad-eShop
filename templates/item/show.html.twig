@@ -6,12 +6,20 @@
 
     <section class="item-section">   
         <div class="item-image-show"></div>
-        <ul class="item-information">
-            <li>{{ item.name }}</li>
-            <li>{{ item.price }} €</li>
-            <li>{{ item.state }}</li>
-            <li>{{ item.localisation }}</li>
-        </ul>
+        <div style="display: flex; flex-direction: column;">
+            <p class="item-name">{{ item.name }}</p>
+            <div class="item-information-section">
+                <ul class="item-information">
+                    <li>{{ item.price }} €</li>
+                    <li>{{ item.state }}</li>
+                    <li>{{ item.localisation }}</li>
+                </ul>
+                <ul class="item-seller-information">
+                    <li>Vendeur : <a class="item-seller-profile" href="{{ path('user_show', {'id': item.seller.id}) }}">{{ item.seller.firstname }} {{ item.seller.lastname }}</a></li>
+                    <li>N° de téléphone : <p>{{ item.seller.phonenumber }}</p></li>
+                </ul>
+            </div>
+        </div>
     </section>
     <div class="item-description-section">
         {% if app.user and app.user.id == item.seller.id %}
