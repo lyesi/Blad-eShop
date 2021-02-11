@@ -3,9 +3,14 @@
 {% block title %}Nouvel Article{% endblock %}
 
 {% block body %}
-    <h1>Ajouter un nouvel article</h1>
 
+    <div class="register-form new-item-form">
     {{ include('item/_form.html.twig') }}
+    </div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+    <div class="bubble bubble-6"></div>
 
-    <a href="{{ app.request.headers.get('referer') }}">Retour</a>
+    <a class="item-return-button" href="{{ app.request.headers.get('referer') }}">Retour</a>
 {% endblock %}
